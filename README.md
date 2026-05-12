@@ -1,7 +1,8 @@
 # purge-broken-longhorn
 Simple bash script to purge longhorn from a k3s cluster if you mess up and have floating longhorn api crd's etc. that are sending warnings to journalctl and annoying you.
 
---- Usage ---
+Usage
+---
 
 Step 1. Make sure ALL of your services have been exported to local-path storage classes, anything still on longhorn will suffer COMPLETE data loss
 
@@ -13,9 +14,8 @@ Step 4. Run ```bash <(curl -s https://raw.githubusercontent.com/josh56432/purge-
 
 Step 5. Profit.
 
---- Support ---
-
-## ☕ Support This Project
+Support
+---
 
 <a href="https://www.buymeacoffee.com/josh56432" target="_blank">
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="40" />
