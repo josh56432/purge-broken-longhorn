@@ -12,6 +12,9 @@ NS="longhorn-system"
 
 say() { printf "\n=== %s ===\n" "$*"; }
 
+apt update
+apt install jq
+
 # ---------------------------------------------------------------------------
 say "1/9  Disabling conversion webhooks on Longhorn CRDs"
 # Without this, any list/patch/delete on longhorn.io resources will fail
@@ -115,4 +118,4 @@ echo "Namespace:   $(kubectl get ns "$NS" 2>/dev/null || echo gone)"
 echo "PVs:         $(kubectl get pv -o json 2>/dev/null | jq '[.items[] | select(.spec.csi.driver=="driver.longhorn.io")] | length') remaining"
 echo "Webhooks:    $(kubectl get mutatingwebhookconfigurations,validatingwebhookconfigurations 2>/dev/null | grep -c longhorn) remaining"
 echo
-echo "Cluster cleanup done. Now run purge-longhorn-node.sh on EACH node."
+echo "Cluster cleanup done. Now run purge-longhorn-from-node.sh on EACH node."
